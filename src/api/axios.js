@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'https://kartifys-backend-production.up.railway.app/api',
+  baseURL: 'https://kartifys-backend-production.up.railway.app/api',
 });
 
 API.interceptors.request.use((config) => {

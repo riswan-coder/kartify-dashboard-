@@ -17,8 +17,11 @@ export default function Login() {
       const res = await login(form);
       const { access, refresh } = res.data;
 
-      // Get user profile to check role
+      // Save tokens first
       localStorage.setItem('access_token', access);
+      localStorage.setItem('refresh_token', refresh);
+
+      // Get user profile
       const profileRes = await getProfile();
       const userData = profileRes.data;
 
@@ -27,9 +30,9 @@ export default function Login() {
 
       // Redirect based on role
       if (userData.role === 'admin') {
-        navigate('/admin/shops');
+        window.location.href = '/admin/shops';  // ← change navigate to window.location.href
       } else if (userData.role === 'shop_owner') {
-        navigate('/shop/products');
+        window.location.href = '/shop/products';
       } else {
         toast.error('Access denied. Customers use the mobile app.');
       }
