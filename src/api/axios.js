@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
+  baseURL: process.env.REACT_APP_API_URL || 'https://kartifys-backend-production.up.railway.app/api',
 });
 
-// Automatically attach token to every request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('access_token');
   if (token) {
@@ -13,7 +12,6 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// Auto refresh token if expired
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
