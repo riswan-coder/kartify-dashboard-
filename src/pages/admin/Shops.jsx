@@ -216,6 +216,16 @@ export default function AdminShops() {
                         }
                       </button>
                       <button
+                        onClick={() => {
+                          const link = `https://kartify-website.vercel.app/shop/${shop.id}?ref=direct`;
+                          navigator.clipboard.writeText(link);
+                          toast.success('Shop link copied!');
+                        }}
+                        className="text-xs font-medium px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                      >
+                        Copy Link
+                      </button>
+                      <button
                         onClick={() => deleteShop(shop)}
                         className="flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 transition-colors"
                       >

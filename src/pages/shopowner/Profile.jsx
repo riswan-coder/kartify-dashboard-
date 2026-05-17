@@ -157,12 +157,12 @@ export default function ShopProfile() {
         </p>
         <div className="flex items-center gap-2">
           <code className="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-600 truncate">
-            {`https://kartifys-website.vercel.app/shop/${shop?.id}?ref=direct`}
+            {`https://kartify-website.vercel.app/shop/${shop?.id}?ref=direct`}
           </code>
           <button
             onClick={() => {
               navigator.clipboard.writeText(
-                `https://kartifys-website.vercel.app/shop/${shop?.id}?ref=direct`
+                `https://kartify-website.vercel.app/shop/${shop?.id}?ref=direct`
               );
               toast.success('Link copied!');
             }}
