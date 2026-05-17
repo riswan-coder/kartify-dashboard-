@@ -150,6 +150,32 @@ export default function ShopProfile() {
         </div>
       </div>
 
+      {/* Share link */}
+      <div className="bg-white rounded-xl border border-gray-200 p-5 mb-6">
+        <p className="text-sm font-medium text-gray-700 mb-3">
+          Your shop link — share on Instagram, WhatsApp
+        </p>
+        <div className="flex items-center gap-2">
+          <code className="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-600 truncate">
+            {`https://kartifys-website.vercel.app/shop/${shop?.id}?ref=direct`}
+          </code>
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText(
+                `https://kartifys-website.vercel.app/shop/${shop?.id}?ref=direct`
+              );
+              toast.success('Link copied!');
+            }}
+            className="px-4 py-2 bg-primary-600 text-white rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors whitespace-nowrap"
+          >
+            Copy Link
+          </button>
+        </div>
+        <p className="text-xs text-gray-400 mt-2">
+          Customers who open this link will see only your shop
+        </p>
+      </div>
+
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <form onSubmit={handleSave} className="space-y-5">
 
